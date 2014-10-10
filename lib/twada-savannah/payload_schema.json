@@ -1,0 +1,34 @@
+{
+    "required": ["action", "repository", "issue", "comment"],
+    "properties": {
+        "action": { "type": "string" },
+
+        "repository": {
+            "type": "object",
+            "required": ["full_name"],
+            "properties": { "full_name": { "type": "string" } }
+        },
+
+        "issue": {
+            "type": "object",
+            "required": ["number"],
+            "properties": { "number": { "type": "integer" } }
+        },
+
+        "comment": {
+            "type": "object",
+            "required": ["id", "user", "body"],
+            "properties": {
+                "id": { "type": "integer" },
+                "user": {
+                    "type": "object",
+                    "required": ["id"],
+                    "properties": {
+                        "id": { "type": "integer" }
+                    }
+                },
+                "body": { "type": "string" }
+            }
+        }
+    }
+}

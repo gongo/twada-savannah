@@ -1,0 +1,24 @@
+{
+  "action": "created",
+  "issue": {
+    "url": "https://api.github.com/repos/user/repo/issues/666",
+    "id": 1,
+    "number": 666
+  },
+  "comment": {
+    "url": "https://api.github.com/repos/user/repo/issues/comments/777",
+    "html_url": "https://github.com/user/repo/pull/4#issuecomment-777",
+    "issue_url": "https://api.github.com/repos/user/repo/issues/4",
+    "id": 777,
+    "user": {
+      "login": "coveralls",
+      "id": 2354108
+    },
+    "body": "\nCoverage decreased (-8.57%25) when pulling **xxxxx on pr4** into **yyyyy on master**.\n"
+  },
+  "repository": {
+    "id": 10454111,
+    "name": "repo",
+    "full_name": "user/repo"
+  }
+}

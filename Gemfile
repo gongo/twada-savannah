@@ -7,6 +7,7 @@ gem 'octokit'
 gem 'dalli'
 gem 'json-schema'
 gem 'slim'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'rack-lineprof'

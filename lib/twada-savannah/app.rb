@@ -10,6 +10,10 @@ module TWadaSavannah
   class App < Sinatra::Base
     TARGET_COMMENTER = '2354108' # https://github.com/coveralls
 
+    configure :production do
+      require 'newrelic_rpm'
+    end
+
     configure do
       cache = Dalli::Client.new(
         ENV['MEMCACHEDCLOUD_SERVERS'],

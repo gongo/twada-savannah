@@ -42,7 +42,7 @@ module TWadaSavannah
     end
 
     get '/twada.png' do
-      send_file 'public/twada_savanna_lion.png', type: :png
+      send_file 'public/images/twada_savanna_lion.png', type: :png
     end
 
     private

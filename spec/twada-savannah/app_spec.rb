@@ -21,9 +21,15 @@ describe TWadaSavannah::App do
   end
 
   it 'say "omae ieruno?"' do
-    get '/twada.png'
-    expect(last_response).to be_ok
-    expect(last_response.headers['Content-Type']).to eq 'image/png'
+    get '/twada.png' do
+      expect(last_response).to be_ok
+      expect(last_response.headers['Content-Type']).to eq 'image/png'
+    end
+  end
+
+  describe 'GET /' do
+    it { should be_ok }
+    it { should match '<title>twada-savannah</title>' }
   end
 
   describe 'POST /' do

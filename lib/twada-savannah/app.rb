@@ -66,6 +66,7 @@ module TWadaSavannah
 
       return 'comment id'   unless comment
       return 'comment time' unless valid_within_comment_created_at?(comment)
+      return 'comment user' unless comment.user.id.to_s == TARGET_COMMENTER
 
       nil
     end

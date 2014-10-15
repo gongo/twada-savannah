@@ -41,10 +41,14 @@ describe TWadaSavannah::App do
       File.read(File.dirname(__FILE__) + '/payload_json/payload.json')
     end
 
+    let(:client) do
+      user    = double(id: app::TARGET_COMMENTER)
+      comment = double(user: user, created_at: Time.now - 5) # 5 sec ago
+      double(comment: comment)
+    end
+
     context 'valid webhook' do
       before do
-        comment = double(created_at: Time.now - 5) # 5 sec ago
-        client = double(comment: comment)
         expect(client).to receive(:add_comment)
         allow_any_instance_of(app).to receive(:github_client).and_return(client)
       end
@@ -103,9 +107,12 @@ describe TWadaSavannah::App do
     end
 
     context 'specified comment that was not created at within 10 sec' do
-      before do
+      let(:client) do
         comment = double(created_at: Time.now - 11) # 11 sec ago
-        client = double(comment: comment)
+        double(comment: comment)
+      end
+
+      before do
         allow_any_instance_of(app).to receive(:github_client).and_return(client)
       end
 
@@ -113,16 +120,28 @@ describe TWadaSavannah::App do
       it { expect(subject.body).to eq 'comment time' }
     end
 
-    context 'current comment was inform coverage increased' do
+    context 'User who made specified comment is different' do
+      let(:client) do
+        user    = double(id: 12345)
+        comment = double(created_at: Time.now - 5, user: user)
+        double(comment: comment)
+      end
+
       before do
-        comment = double(created_at: Time.now - 5) # 11 sec ago
-        client = double(comment: comment)
-        expect(client).not_to receive(:add_comment)
         allow_any_instance_of(app).to receive(:github_client).and_return(client)
       end
 
+      it { should be_bad_request }
+      it { expect(subject.body).to eq 'comment user' }
+    end
+
+    context 'current comment was inform coverage increased' do
       let(:request_body) do
         File.read(File.dirname(__FILE__) + '/payload_json/increased_payload.json')
+      end
+
+      before do
+        allow_any_instance_of(app).to receive(:github_client).and_return(client)
       end
 
       it { expect(subject.status).to eq 204 }

@@ -1,0 +1,103 @@
+doctype 5
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    title twada-savannah
+
+    link rel="stylesheet" href="/css/bootstrap.min.css"
+    link rel="stylesheet" href="/css/bootstrap-theme.min.css"
+    link rel="stylesheet" href="/css/main.css"
+
+  body
+    header.jumbotron
+      h1 TWada Savannah Lion
+      h2 Lion said:
+      .said
+        p
+          b "I did not write test"
+        p
+          b Do you say the same thing in front of @t_wada ?
+      h2 What do you do...?
+
+    #lion.section.container
+      .row
+        .col-md-3
+          img src="/images/lion-face.png"
+        .col-md-3.col-md-offset-6
+          img src="/images/lion-face2.png"
+      .row
+        .col-md-6.col-md-offset-3
+          p
+            | Lion lives in Savannah.
+          p
+            | Lion sees commit always.
+          p
+            | Lion wants peace.
+      .row
+        .col-md-3
+          img src="/images/lion-face.png"
+        .col-md-3.col-md-offset-6
+          img src="/images/lion-face2.png"
+
+    #introduction.section.text-center
+      h1 LION APPEAR SUDDENLY
+      img.demo src="/images/appear-lion.gif"
+
+    #requirement.section.container.text-center
+      h1 REQUIREMENT
+      .row
+        .col-md-10.col-md-offset-1
+          ul.list-group.text-left
+            li.list-group-item
+              | Your code hosted on
+              a href="https://github.com"
+                |  GitHub
+              |  (not GH:E)
+            li.list-group-item
+              | Use
+              a href="https://coveralls.io/"
+                |  Coveralls.
+              |  (see
+              a href="https://coveralls.zendesk.com/hc/en-us"
+                |  docs
+              | )
+            li.list-group-item
+              | Allow
+              a href="https://github.com/coveralls"
+                |  coveralls user
+              |   to comment to issue (or pull-request)
+
+    #document.section.text-center
+      h1 SETUP
+      .container.text-left
+        h2 1. Aceess to your repository setting page.
+        p
+          | https://github.com/{user}/{repo}/settings
+
+        h2 2. Click link "Webhooks &amp; Services".
+        img src="/images/doc1.png"
+
+        h2 3. Click button "Add webhook" in Webhooks section.
+        img src="/images/doc2.png"
+
+        h2 4. Input Payload URL
+        p
+          | http://#{request.host}/
+        img src="/images/doc3.png"
+
+        h2 5. Choice event trigger.
+        h3 "Send me everything" or check "issue comment"
+        img src="/images/doc4.png"
+
+        h2 6. Click "Add webhook" button. finish!!
+
+    #contact.section.container.text-center
+      h1 CONTACT
+      p
+        | Access to
+        a href="https://github.com/gongo/twada-savannah"
+          |  gongo/twada-savannah
+
+    #copyright.section.text-center
+      h3 &copy; 2014 Wataru MIYAGUNI

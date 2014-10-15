@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
-ruby '2.1.3'
+ruby '2.1.2'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'octokit'
 gem 'dalli'
 gem 'json-schema'
+gem 'slim'
 
 group :development do
   gem 'rack-lineprof'

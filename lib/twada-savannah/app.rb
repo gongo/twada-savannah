@@ -4,6 +4,7 @@ require 'sinatra/contrib'
 require 'sinatra/reloader'
 require 'dalli'
 require 'time'
+require 'slim'
 
 module TWadaSavannah
   class App < Sinatra::Base
@@ -17,10 +18,16 @@ module TWadaSavannah
         expires_in: 3600 * 24 # 1 day
       )
       set :cache, cache
+      set :views, File.dirname(__FILE__) + '/../../views'
+      set :public_folder, File.dirname(__FILE__) + '/../../public'
     end
 
     configure :development do
       register Sinatra::Reloader
+    end
+
+    get '/' do
+      slim :index
     end
 
     post '/' do
@@ -47,8 +54,6 @@ module TWadaSavannah
     def bad_request(body = nil)
       error 400, body
     end
-
-    private
 
     def validate_request
       return 'event' unless issue_comment_event?

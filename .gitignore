@@ -17,3 +17,5 @@
 /.bundle/
 /lib/bundler/man/
 /vendor
+
+.DS_Store

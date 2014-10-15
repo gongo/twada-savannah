@@ -1,0 +1,59 @@
+body {
+    background-color: #ffffff;
+}
+
+.jumbotron {
+    background-image: url("/images/header.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    margin-bottom: 0px;
+
+    color: #eeffdd;
+}
+
+.jumbotron .said {
+    margin-left: 3em;
+}
+
+.section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.section h1 {
+    margin-top: 0em;
+    margin-bottom: 1em;
+    font-size: 50px;
+}
+
+.section p {
+    font-size: 25px;
+}
+
+#introduction, #document, #copyright {
+    background-color: #448877;
+    color: #eeffdd;
+}
+
+#lion, #requirement, #contact {
+    background-color: #ffffff;
+}
+
+#requirement li {
+    font-size: 20px;
+}
+
+#lion img {
+    width: 95%;
+}
+
+#document p {
+    margin-left: 2em;
+}
+
+#document h2 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
